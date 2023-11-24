@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bigwrap{
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(to bottom right, red, yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .smallbox{
+            width: 450px;
+            height: 320px;
+            box-shadow: 4px 10px 15px rgba(0, 0, 0, 0.653);
+            background-image: linear-gradient(to bottom right, red, yellow);
+            display: block;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .smallbox h2{
+            color: white;
+            text-align: center;
+        }
+
+      
+        @keyframes scroll {
+            0% {
+            transform: translateX(50%);
+                            }
+}
+
+    .scrolling-text {
+        overflow: hidden;   
+        animation: scroll 5s linear infinite; 
+        width: 450px;
+    }
+
+    .smallbox input{
+        padding: 10px 30px;
+       margin: 20px;
+       
+    }
+
+    .smallbox button{
+        padding: 15px 20px;
+    }
+
+    label{
+        color: white;
+    }
+
+    /* #result{
+        padding: 20px 30px;
+       margin: 20px;
+    } */
+
+
+
+    </style>
+</head>
+<body>
+    <div class="bigwrap">
+        <div class="smallbox">
+
+            <div class="scrolling-text">
+               Welcome to Grading System.
+            </div>
+
+                <h2>GRADING SYSTEM</h2>
+                <label for="score">CHECK RESULT</label>
+                <br>
+                <input type="text" id="score" placeholder="Enter Score">
+                <button class="result" onclick="calculateGrade()">Check Grade</button>
+                <br>
+                <button id="result"></button>
+
+
+        </div>
+    </div>
+</body>
+
+<script>
+    function calculateGrade(){
+        const score = parseFloat(document.getElementById("score").value);
+
+        if (isNaN(score)) {
+            document.getElementById("result").textContent = "Please enter a valid score"
+        }else if (score <0) {
+            document.getElementById("result").textContent = "Grade not available";
+        }else if (score >100) {
+            document.getElementById("result").textContent = "Grade not available"; 
+        }else if (score >= 70) {
+            document.getElementById("result").textContent = "Excellent ❤️❤️"; 
+        }else if (score >=50) {
+            document.getElementById("result").textContent = "Good 👍"; 
+        }else if (score >=40) {
+            document.getElementById("result").textContent = "Fair 🙂"; 
+        }else if (score <40) {
+            document.getElementById("result").textContent = "Very Poor 😰"; 
+        }else {
+            document.getElementById("result").textContent = "Grade not available";
+        }
+
+    }
+    </script>
+</html>
